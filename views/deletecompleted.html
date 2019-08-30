@@ -1,0 +1,22 @@
+<html>
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" 
+    rel="stylesheet">
+</head>
+<body>
+    <div class="jumbotron">
+    <h1>Delete Completed Tasks</h1> </br>
+    <h1>
+        <a href="/inserttask" class="btn btn-primary">Insert New Task</a>
+        <a href="/listtasks" class="btn btn-primary">List Tasks</a>
+        <a href="/deletebytaskid" class="btn btn-primary">Delete Task By TaskID</a>
+        <a href="/deletecompletedtask" class="btn btn-primary">Delete All The Completed Tasks</a>
+        <a href="/updatetaskbyid" class="btn btn-primary">Update Task Status</a>
+    </h1>
+    
+    <form action="/deletecompleted" method ="POST">
+        <button>Confirm</button>
+    </form>
+    </div>
+</body>
+</html>
