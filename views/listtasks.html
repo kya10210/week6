@@ -25,6 +25,7 @@
                 <td>Description</td>
                 
             </tr>
+            <% var options = { year: 'numeric', month: 'long', day: 'numeric' }; %>
             <% for ( var i =0; i< taskDb.length;i++){ %>
                 <tr>
                     <td>
@@ -37,7 +38,7 @@
                         <%= taskDb[i].assign %>
                     </td>
                     <td>
-                        <%= taskDb[i].due %>
+                        <%= taskDb[i].due.toLocaleDateString(options) %>
                     </td>
                     <td>
                         <%= taskDb[i].status %>

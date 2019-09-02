@@ -1,14 +1,14 @@
 const express = require("express");
 const mongodb = require("mongodb");
 const bodyparser = require('body-parser');
-const morgan = require('morgan');
+//const morgan = require('morgan');
 //Configure Express
 const app = express();
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.use(express.static('public'));
 app.use(bodyparser.urlencoded({ extended: false }));
-app.use(morgan('tiny'));
+//app.use(morgan('tiny'));
 app.listen(8080);
 //Configure MongoDB
 const MongoClient = mongodb.MongoClient;
@@ -39,18 +39,21 @@ MongoClient.connect(url, { useNewUrlParser: true },
 
     app.post('/add', function(req,res){
         let taskDetails = req.body;
-        let taskStatus = taskDetails.taskstatus;
 
         console.log(taskDetails);
         
-        db.collection('tasks').insertOne({ 
-            id: getNewId(),
-            name: taskDetails.taskname,
-            assign: taskDetails.taskassign,
-            due: taskDetails.taskdue,
-            status: taskDetails.taskstatus,
-            description: taskDetails.taskdesc });
-        res.redirect('/listtasks');
+         db.collection('tasks').insertOne({ 
+             id: getNewId(),
+             name: taskDetails.taskname,
+             assign: taskDetails.taskassign,
+             due: new Date(taskDetails.taskdue),
+             status: taskDetails.taskstatus,
+             description: taskDetails.taskdesc });
+
+
+             res.redirect('/listtasks');
+
+        
     });
     //date haven't fixed
 
