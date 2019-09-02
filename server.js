@@ -17,7 +17,7 @@ const url = "mongodb://localhost:27017/";
 //reference to the database (i.e. collection)
 let db;
 //Connect to mongoDB server
-MongoClient.connect(url,{ useUnifiedTopology: true }, { useNewUrlParser: true },
+MongoClient.connect(url, { useNewUrlParser: true },
     function (err, client) {
         if (err) {
             console.log("Err  ", err);
