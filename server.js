@@ -106,6 +106,27 @@ MongoClient.connect(url, { useNewUrlParser: true },
         res.redirect('/listtasks');
     });
 
+    app.get('/insertmany',function(req,res){
+        res.render('insertmany.html');
+    });
+
+    app.post('/insert',function(req,res){
+        let count = Number(req.body.count);
+        let taskDetails = req.body;
+        let tasks =[];
+        for(var i = 1; i<= count; i++){
+            tasks.push({id: getNewId(),
+                name: taskDetails.taskname,
+                assign: taskDetails.taskassign,
+                due: new Date(taskDetails.taskdue),
+                status: taskDetails.taskstatus,
+                description: taskDetails.taskdesc});
+        }
+        console.log(tasks);
+        
+        db.collection('tasks').insertMany(tasks);
+        res.redirect('/listtasks');
+    })
    
     //generate ID
     function getNewId() {

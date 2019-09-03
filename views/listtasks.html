@@ -12,6 +12,7 @@
             <a href="/deletebytaskid" class="btn btn-primary">Delete Task By TaskID</a>
             <a href="/deletecompletedtask" class="btn btn-primary">Delete All The Completed Tasks</a>
             <a href="/updatetaskbyid" class="btn btn-primary">Update Task Status</a>
+            <a href="/insertmany" class="btn btn-primary">Insert Many</a>
      </h1>
      </div>
     <h3>The to do tasks are:
@@ -38,7 +39,7 @@
                         <%= taskDb[i].assign %>
                     </td>
                     <td>
-                        <%= taskDb[i].due.toLocaleDateString(options) %>
+                        <%= taskDb[i].due.toLocaleDateString('en-AU') %>
                     </td>
                     <td>
                         <%= taskDb[i].status %>
